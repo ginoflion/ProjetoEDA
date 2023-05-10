@@ -1,0 +1,6 @@
+﻿  Program.c
+C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Cliente.h(9,32): warning C4081: expected ')'; found 'newline'
+C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Mobilidade.h(9,32): warning C4081: expected ')'; found 'newline'
+C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Program.c(31,64): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Program.c(31,63): warning C4024: 'procuraGestores': different types for formal and actual parameter 2
+  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\x64\Debug\ProjetoEDA.exe

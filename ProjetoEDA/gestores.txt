@@ -1,0 +1,3 @@
+2;Novo Nome;Nova Password;novo.email@example.com
+3;Pedro Santos;Batatas; pedro.santos@example.com
+4;Marta Pereira;Benfica; marta.pereira@example.com
