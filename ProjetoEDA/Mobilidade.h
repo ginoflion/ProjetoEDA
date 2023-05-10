@@ -6,7 +6,7 @@
  * \date   March 2023
  *********************************************************************/
 #pragma once
-#pragma warning(disable : 4996
+#pragma warning(disable : 4996) 
 //bibliotecas 
 #include <stdlib.h>
 #include <stdio.h>

@@ -1,6 +1,7 @@
-﻿  Program.c
-C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Cliente.h(9,32): warning C4081: expected ')'; found 'newline'
-C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Mobilidade.h(9,32): warning C4081: expected ')'; found 'newline'
-C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Program.c(31,64): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\ProjetoEDA\Program.c(31,63): warning C4024: 'procuraGestores': different types for formal and actual parameter 2
-  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA_a25970\ProjetoEDA\x64\Debug\ProjetoEDA.exe
+﻿  Grafo.c
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(9,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(21,35): warning C4013: 'cxalloc' undefined; assuming extern returning int
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(21,59): warning C4312: 'type cast': conversion from 'int' to 'Vertice *' of greater size
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(22): warning C4716: 'CriaVertice': must return a value
+Grafo.obj : error LNK2019: unresolved external symbol cxalloc referenced in function CriaVertice
+C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe : fatal error LNK1120: 1 unresolved externals
