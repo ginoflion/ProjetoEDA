@@ -25,7 +25,8 @@ typedef struct Vertice {
 
 
 typedef struct Adj {
-	int cod;		
+	int codOrigem;
+	int codDestino;
 	float distancia;		
 	struct Adj* next;
 }Adj;
@@ -35,6 +36,7 @@ typedef struct Adj {
 
 Vertice* CriaGrafo();
 Vertice* CriaVertice(char cidade, int cod);
+Vertice* AddVertice(Vertice* head, Vertice* novo);
 
 
-Adj* CriaAdj(int cod, float distancia);
+Adj* CriaAdj(int codOrigem,int codDestino, float distancia);

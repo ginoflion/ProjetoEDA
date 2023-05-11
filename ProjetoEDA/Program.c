@@ -19,19 +19,18 @@ int main() {
     GestoresLista* gestores = NULL;
    
     
+    MobilidadeE mobilidade1 = { 120, M1, 3.50, 90, "AA-11-22", "Lisboa" };
+    MobilidadeE mobilidade2 = { 200, M2, 4.25, 120, "BB-33-44", "Porto" };
+    MobilidadeE mobilidade3 = { 300, M3, 6.00, 150, "CC-55-66", "Funchal" };
+    meiosMobilidade = addMeioMobilidade(meiosMobilidade, mobilidade1);
+    meiosMobilidade = addMeioMobilidade(meiosMobilidade, mobilidade2);
+    meiosMobilidade = addMeioMobilidade(meiosMobilidade, mobilidade3);
+    meiosMobilidade= listarMeiosMobilidadePorAutonomia(meiosMobilidade);
+    MostrarListaMeiosMobilidade(meiosMobilidade);
     
-    printf("%d" ,LerFicheiroClientes(&clientes, "clientes.txt"));
-    printf("%d" ,LerFicheiroMeioMobilidade(&meiosMobilidade, "meiosMobilidade.txt"));
-    printf("%d" ,LerFicheiroGestores(&gestores, "gestores.txt"));
-
-   
+    
 
     
-    MostrarListaGestores(gestores);
-    GestoresLista* gestorARemover = procuraGestores(gestores, 2);
-    gestores= removerGestor(gestores, gestorARemover);
-    MostrarListaGestores(gestores);
-   
 
   
     return 0;

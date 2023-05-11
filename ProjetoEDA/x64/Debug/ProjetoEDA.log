@@ -1,7 +1,5 @@
-﻿  Grafo.c
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(9,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(21,35): warning C4013: 'cxalloc' undefined; assuming extern returning int
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(21,59): warning C4312: 'type cast': conversion from 'int' to 'Vertice *' of greater size
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafo.c(22): warning C4716: 'CriaVertice': must return a value
-Grafo.obj : error LNK2019: unresolved external symbol cxalloc referenced in function CriaVertice
-C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe : fatal error LNK1120: 1 unresolved externals
+﻿  MeiosMobilidade.c
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(199,7): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(225,3): warning C4013: 'strcpy' undefined; assuming extern returning int
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(253): warning C4716: 'SwapMeioMobilidade': must return a value
+  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe

@@ -228,3 +228,26 @@ MobilidadeLista* alterarMeioMobilidade(MobilidadeLista* head, int autonomia, Tip
 	return head;
 }
 
+MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head) {
+	if (head == NULL)return NULL;
+	MobilidadeLista* aux=head;
+	while (aux != NULL) {
+		MobilidadeLista* atual = head;
+		while (atual->proximo!=NULL) {
+			if (atual->automovel.autonomia < atual->proximo->automovel.autonomia) {
+				SwapMeioMobilidade(atual, atual->proximo);
+			}
+			atual = atual->proximo;
+		}
+		aux = aux->proximo;
+	}
+	return head;
+}
+
+
+MobilidadeLista* SwapMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2) {
+	MobilidadeE aux = transporte1->automovel;
+	transporte1->automovel = transporte2->automovel;
+	transporte2->automovel = aux;
+
+}

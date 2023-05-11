@@ -10,11 +10,6 @@
 
 
 #pragma region Vertices
-/**
- * Inicialização do Grafo
- * 
- * \return 
- */
 Vertice* CriaGrafo() {
 	return NULL;
 }
@@ -31,19 +26,47 @@ Vertice* CriaVertice(char cidade, int cod) {
 	novoVertice->proximo = NULL;
 	novoVertice->adjacente = NULL;
 }
+
+Vertice* AddVertice(Vertice* head, Vertice* novo) {
+	if (head== NULL) {
+		head = novo;
+		return head;
+	}
+	else {
+		Vertice* aux = head;
+		Vertice* anterior = aux;
+		while (aux && aux->cod != novo->cod	) {
+			anterior = aux;
+			aux = aux->proximo;
+		}
+		if (aux==head) {
+			novo->proximo = head;
+			head = novo;
+		}
+		else {
+			novo->proximo = aux;
+			anterior->proximo = novo;
+		}
+
+		return head;
+	}
+
+}
 #pragma endregion
 
 #pragma region Adjacentes
-Adj* CriaAdj(int cod, float distancia) {
+Adj* CriaAdj(int codOrigem,int codDestino, float distancia) {
 	Adj* novaAdj = (Adj*)malloc(sizeof(Adj));
 	if (novaAdj == NULL) {
 		free(novaAdj);
 		return novaAdj;
 	}
 	if (novaAdj == NULL)return NULL;
-	novaAdj->cod = cod;
+	novaAdj->codOrigem = codOrigem;
+	novaAdj->codDestino = codDestino;
 	novaAdj->distancia = distancia;
 	novaAdj->next = NULL;
 	return novaAdj;
 }
 #pragma endregion 
+
