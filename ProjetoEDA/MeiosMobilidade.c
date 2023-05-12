@@ -251,3 +251,31 @@ MobilidadeLista* SwapMeioMobilidade(MobilidadeLista* transporte1, MobilidadeList
 	transporte2->automovel = aux;
 
 }
+
+MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char* localizacao) {
+	
+	if (head == NULL)return NULL;
+	MobilidadeLista* ultimoAutomovel = NULL;
+	MobilidadeLista* novaLista = NULL;
+	MobilidadeLista* aux = head;
+	while (aux != NULL) {
+		if (strcmp(aux->automovel.localizacao, localizacao) == 0) {
+			MobilidadeLista* novoAutomovel= (MobilidadeLista*)malloc(sizeof(MobilidadeLista));
+			novoAutomovel->automovel = aux->automovel;
+			novoAutomovel->proximo = NULL;
+
+			if (novaLista == NULL) {
+				novaLista = novoAutomovel;
+				ultimoAutomovel = novaLista;
+			}
+			else {
+				ultimoAutomovel->proximo = novoAutomovel;
+				ultimoAutomovel = novoAutomovel;
+
+			}
+		}
+		aux = aux->proximo;
+	}
+	return novaLista;
+}
+

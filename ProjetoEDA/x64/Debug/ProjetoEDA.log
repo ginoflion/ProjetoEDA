@@ -1,5 +1,3 @@
-﻿  MeiosMobilidade.c
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(199,7): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(225,3): warning C4013: 'strcpy' undefined; assuming extern returning int
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\MeiosMobilidade.c(253): warning C4716: 'SwapMeioMobilidade': must return a value
+﻿  Program.c
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Cliente.h(9,32): warning C4081: expected ')'; found 'newline'
   ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe

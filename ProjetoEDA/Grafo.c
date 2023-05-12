@@ -56,17 +56,18 @@ Vertice* AddVertice(Vertice* head, Vertice* novo) {
 
 #pragma region Adjacentes
 Adj* CriaAdj(int codOrigem,int codDestino, float distancia) {
+
 	Adj* novaAdj = (Adj*)malloc(sizeof(Adj));
 	if (novaAdj == NULL) {
-		free(novaAdj);
-		return novaAdj;
+		return NULL;
 	}
-	if (novaAdj == NULL)return NULL;
+	
 	novaAdj->codOrigem = codOrigem;
 	novaAdj->codDestino = codDestino;
 	novaAdj->distancia = distancia;
 	novaAdj->next = NULL;
 	return novaAdj;
+
 }
 #pragma endregion 
 
