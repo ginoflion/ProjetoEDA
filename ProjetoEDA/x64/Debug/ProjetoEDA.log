@@ -1,3 +1,5 @@
 ﻿  Program.c
 C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Cliente.h(9,32): warning C4081: expected ')'; found 'newline'
-  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Program.c(31,33): error C2065: 'adj': undeclared identifier
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Program.c(31,33): warning C4047: 'function': 'Adj *' differs in levels of indirection from 'int'
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Program.c(31,30): warning C4024: 'InserirAdjVertice': different types for formal and actual parameter 2
