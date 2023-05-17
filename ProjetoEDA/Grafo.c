@@ -120,3 +120,33 @@ void MostraAdjacencias(Adj* adj) {
 }
 #pragma endregion 
 
+int SalvarFicheiroGestoresBin(Vertice* grafo, char* ficheiro) {
+	if (grafo == NULL || ficheiro == NULL) return 2;
+
+	FILE* fp;
+	fopen_s(&fp, ficheiro, "wb");
+	if (fp == NULL) return 2;
+
+	// Contar o número de vértices manualmente
+	int numVertices = 0;
+	Vertice* grafoAtual = grafo;
+	while (grafoAtual != NULL) {
+		numVertices++;
+		grafoAtual = grafoAtual->proximo;
+	}
+
+	// Escrever o número de vértices no arquivo
+	fwrite(&numVertices, sizeof(int), 1, fp);
+
+	// Reiniciar o ponteiro para o início do grafo
+	grafoAtual = grafo;
+
+	// Escrever cada vértice no arquivo
+	while (grafoAtual != NULL) {
+		fwrite(grafoAtual, sizeof(Vertice), 1, fp);
+		grafoAtual = grafoAtual->proximo;
+	}
+
+	fclose(fp);
+	return 0;
+}

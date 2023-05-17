@@ -279,3 +279,18 @@ MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char
 	return novaLista;
 }
 
+MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro) {
+	FILE* fp;
+	MobilidadeLista* h = NULL;
+	MobilidadeE aux;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	while (fread(&aux, sizeof(MobilidadeE), 1, fp)) {
+		h = addMeioMobilidade(h, aux);
+	}
+	
+
+	fclose(fp);
+	return h;
+}

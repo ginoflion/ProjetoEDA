@@ -41,3 +41,4 @@ int SalvarFicheiroClientes(ClienteLista* head, char* ficheiro);
 int SalvarFicheiroClientesBin(ClienteLista* head, char* ficheiro);
 ClienteLista* procuraClientes(ClienteLista* head, char* nif);
 ClienteLista* alterarClientes(ClienteLista* head, float saldo, char* nome, char* morada, char* nif);
+ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro);

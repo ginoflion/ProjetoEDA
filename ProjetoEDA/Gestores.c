@@ -217,3 +217,17 @@ GestoresLista* alterarGestores(GestoresLista* head, int id, char* nome, char* em
 	}
 	return head;
 }
+GestoresLista* lerFicheiroGestoresBinario(char* nomeFicheiro) {
+	FILE* fp;
+	GestoresLista* h = NULL;
+	Gestores aux;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	while (fread(&aux, sizeof(Gestores), 1, fp)) {
+		h = addGestor(h, aux);
+	}
+
+	fclose(fp);
+	return h;
+}

@@ -223,4 +223,20 @@ ClienteLista* alterarClientes(ClienteLista* head, float saldo, char* nome, char*
 }
 
 
+ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro) {
+	FILE* fp;
+	ClienteLista* h = NULL;
+	Cliente aux;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	while (fread(&aux, sizeof(Cliente), 1, fp)) {
+		h = addCliente(h, aux);
+	}
+
+	fclose(fp);
+	return h;
+}
+
+
 

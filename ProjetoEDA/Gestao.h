@@ -40,3 +40,4 @@ int SalvarFicheiroGestores(GestoresLista* head, char* ficheiro);
 int SalvarFicheiroGestoresBin(GestoresLista* head, char* ficheiro);
 GestoresLista* procuraGestores(GestoresLista* head, int* id);
 GestoresLista* alterarGestores(GestoresLista* head, int id, char* nome, char* email, char* password);
+GestoresLista* lerFicheiroGestoresBinario(char* nomeFicheiro);

@@ -49,3 +49,4 @@ MobilidadeLista* alterarMeioMobilidade(MobilidadeLista* head, int autonomia, Tip
 MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head);
 MobilidadeLista* SwapMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2);
 MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head,char* localizacao );
+MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro);
