@@ -38,7 +38,7 @@ typedef struct Adj {
 Vertice* CriaVertice(char* cidade, int cod);
 Vertice* AddVertice(Vertice* head, Vertice* novo);
 void MostraGrafo(Vertice* head);
-void DestruirGrafo(Vertice* head);
+Vertice* DestruirGrafo(Vertice* head);
 
 Adj* CriaAdj(int codOrigem, int codDestino, float distancia);
 Adj* InserirAdjVertice(Vertice* grafo, Adj* adj);

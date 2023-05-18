@@ -150,3 +150,14 @@ int SalvarFicheiroGestoresBin(Vertice* grafo, char* ficheiro) {
 	fclose(fp);
 	return 0;
 }
+
+Vertice* DestruirGrafo(Vertice* head) {
+	if (head == NULL)return NULL;
+	else {
+		head->adjacente = NULL;
+		head->cidade = NULL;
+		head->cod = NULL;
+		head->proximo = NULL;
+	}
+	return head;
+}
