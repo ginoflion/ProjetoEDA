@@ -6,6 +6,7 @@
  * \date   March 2023
  *********************************************************************/
 #include "Mobilidade.h"
+#pragma once
 
 /**
  * \brief Procura e retorna o meio de mobilidade na posição indicada pelo valor.
@@ -107,25 +108,27 @@ void MostrarListaMeiosMobilidade(MobilidadeLista* head) {
  * \param ficheiro  O nome do ficheiro de texto.
  * \return  Um código de erro, sendo 1 para sucesso, -1 para erro na abertura do ficheiro e -2 para erro na alocação de memória.
  */
-int LerFicheiroMeioMobilidade(MobilidadeLista* *head, char* ficheiro) {
+int LerFicheiroMeioMobilidade(char* ficheiro) {
 	MobilidadeE meioAtual = { 0 };
 	FILE* fp;
+	MobilidadeLista* head = NULL;
 
 	fopen_s(&fp, ficheiro, "r");
 	if (fp == NULL) return (-1);
 
 	while (fscanf(fp, "%d;%[^;];%[^;];%f;%f;%d;\n", &meioAtual.autonomia, meioAtual.localizacao, meioAtual.matricula, &meioAtual.precoAluguer, &meioAtual.bateria, &meioAtual.tipo) == 6) {
-		MobilidadeLista* novoMeio = addMeioMobilidade(*head, meioAtual);
+		MobilidadeLista* novoMeio = addMeioMobilidade(head, meioAtual);
 		if (novoMeio == NULL) {
 			fclose(fp);
 			return (-2);
 		}
-		*head = novoMeio;
+		head = novoMeio;
 	}
 
 	fclose(fp);
 	return 1;
 }
+
 
 /**
  * \brief Salva a lista de gestores em ficheiro.
@@ -176,7 +179,7 @@ int SalvarFicheiroMeioMobilidadeBin(MobilidadeLista* head, char* ficheiro) {
 
 	do
 	{
-		fwrite(&(meioAtual->automovel), sizeof(MobilidadeLista), 1, fp);
+		fwrite(&(meioAtual->automovel), sizeof(MobilidadeE), 1, fp);
 
 		meioAtual = meioAtual->proximo;
 	} while (meioAtual != NULL);
@@ -279,17 +282,18 @@ MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char
 	return novaLista;
 }
 
+
 MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro) {
 	FILE* fp;
 	MobilidadeLista* h = NULL;
 	MobilidadeE aux;
 
-	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+	fp = fopen(nomeFicheiro, "rb");
+	if (!fp) return NULL;
 
-	while (fread(&aux, sizeof(MobilidadeE), 1, fp)) {
+	while (fread(&aux, sizeof(MobilidadeE), 1, fp) > 0) {
 		h = addMeioMobilidade(h, aux);
 	}
-	
 
 	fclose(fp);
 	return h;

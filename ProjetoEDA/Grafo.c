@@ -120,7 +120,7 @@ void MostraAdjacencias(Adj* adj) {
 }
 #pragma endregion 
 
-int SalvarFicheiroGestoresBin(Vertice* grafo, char* ficheiro) {
+int SalvarFicheiroGrafoBin(Vertice* grafo, char* ficheiro) {
 	if (grafo == NULL || ficheiro == NULL) return 2;
 
 	FILE* fp;
@@ -151,13 +151,15 @@ int SalvarFicheiroGestoresBin(Vertice* grafo, char* ficheiro) {
 	return 0;
 }
 
-Vertice* DestruirGrafo(Vertice* head) {
-	if (head == NULL)return NULL;
-	else {
-		head->adjacente = NULL;
-		head->cidade = NULL;
-		head->cod = NULL;
-		head->proximo = NULL;
-	}
-	return head;
-}
+//void DestruirGrafo(Vertice* head) {
+//	if (head == NULL)return NULL;
+//	
+//	Vertice* atual = head;
+//	while (atual != NULL) {
+//		Vertice* proximo = atual->proximo;
+//		free(atual->adjacente);
+//		free(atual->cidade);
+//		free(atual->cod);
+//		free(atual->proximo);
+//	}
+//}

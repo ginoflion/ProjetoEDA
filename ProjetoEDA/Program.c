@@ -30,8 +30,10 @@ int main() {
     Adj* adj = CriaAdj(1, 2, 10.0);
     InserirAdjVertice(grafo, adj);
     MostraGrafo(grafo);
-    
-  
+
+
+   
+
     return 0;
 }
 

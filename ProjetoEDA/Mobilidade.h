@@ -37,11 +37,10 @@ struct MobilidadeLista {
 };
 
 MobilidadeLista* addMeioMobilidade(MobilidadeLista* head, MobilidadeE next);
-
 MobilidadeLista* lerMeioMobilidade(MobilidadeLista* head, int valor);
 MobilidadeLista* removerMeioMobilidade(MobilidadeLista* head, MobilidadeLista* next);
 void MostrarListaMeiosMobilidade(MobilidadeLista* head);
-int LerFicheiroMeioMobilidade(MobilidadeLista** head, char* ficheiro);
+int LerFicheiroMeioMobilidade(char* ficheiro);
 int SalvarFicheiroMeioMobilidade(MobilidadeLista* head, char* ficheiro);
 int SalvarFicheiroMeioMobilidadeBin(MobilidadeLista* head, char* ficheiro);
 MobilidadeLista* procuraMeioMobilidade(MobilidadeLista* head, char* matricula);

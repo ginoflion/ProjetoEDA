@@ -27,6 +27,9 @@
     <ClInclude Include="Grafos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Aluguer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Clientes.c">

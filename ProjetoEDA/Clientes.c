@@ -35,6 +35,7 @@ ClienteLista* lerCliente(ClienteLista* head, int valor) {
  * \param next O cliente a ser adicionado. 
  * \return O ponteiro para o primeiro elemento da lista atualizada.
  */
+
 ClienteLista* addCliente(ClienteLista* head, Cliente next) {
 	ClienteLista* novoCliente = (ClienteLista*)malloc(sizeof(ClienteLista));
 	if (novoCliente == NULL) {
@@ -53,6 +54,7 @@ ClienteLista* addCliente(ClienteLista* head, Cliente next) {
 	ultimoCliente->proximo = novoCliente;
 	return head;
 }
+
 /**
  * \brief Remove um cliente da lista de clientes.
  *
@@ -89,9 +91,10 @@ ClienteLista* removerCliente(ClienteLista* head, ClienteLista* next) {
  * \param ficheiro Nome do ficheiro a ser lido.
  * \return Retorna 1 em caso de sucesso, -1 em caso de falha ao abrir o ficheiro,ou -2 em caso de falha ao alocar memória para um novo cliente.
  */
-int LerFicheiroClientes(ClienteLista** head, char* ficheiro) {
+int LerFicheiroClientes( char* ficheiro) {
 	Cliente clienteAtual = { 0 };
 	FILE* fp;
+	ClienteLista* head = NULL;
 
 	fopen_s(&fp, ficheiro, "r");
 	if (fp == NULL) return (-1);
@@ -99,17 +102,19 @@ int LerFicheiroClientes(ClienteLista** head, char* ficheiro) {
 	while (fscanf(fp, "%[^;];%[^;];%[^;];%f\n",
 		clienteAtual.nome,  clienteAtual.morada, clienteAtual.nif, &clienteAtual.saldo) == 4)
 	{
-		ClienteLista* novoCliente = addCliente(*head, clienteAtual);
+		ClienteLista* novoCliente = addCliente(head, clienteAtual);
 		if (novoCliente == NULL) {
 			fclose(fp);
 			return (-2);
 		}
-		*head = novoCliente;
+		head = novoCliente;
 	}
 
 	fclose(fp);
 	return 1;
 }
+
+
 /**
  * \brief Salva os dados dos clientes em um ficheiro.
  *
@@ -158,7 +163,7 @@ int SalvarFicheiroClientesBin(ClienteLista* head, char* ficheiro) {
 
 	do
 	{
-		fwrite(&(clienteAtual->cliente), sizeof(ClienteLista), 1, fp);
+		fwrite(&(clienteAtual->cliente), sizeof(Cliente), 1, fp);
 
 		clienteAtual = clienteAtual->proximo;
 	} while (clienteAtual != NULL);
@@ -228,15 +233,16 @@ ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro) {
 	ClienteLista* h = NULL;
 	Cliente aux;
 
-	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+	fp = fopen(nomeFicheiro, "rb");
+	if (!fp) return NULL;
 
-	while (fread(&aux, sizeof(Cliente), 1, fp)) {
+
+	while (fread(&aux, sizeof(Cliente), 1, fp)>0) {
 		h = addCliente(h, aux);
 	}
 
 	fclose(fp);
 	return h;
 }
-
 
 

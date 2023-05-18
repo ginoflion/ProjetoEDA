@@ -6,7 +6,7 @@
  * \date   March 2023
  *********************************************************************/
 #pragma once
-#pragma warning(disable : 4996
+#pragma warning(disable : 4996 )
 //bibliotecas
 #include <stdlib.h>
 #include <stdio.h>
@@ -36,7 +36,7 @@ ClienteLista* addCliente(ClienteLista* head, Cliente next);
 ClienteLista* lerCliente(ClienteLista* head, int valor);
 ClienteLista* removerCliente(ClienteLista* head, ClienteLista* next);
 void MostrarListaClientes(ClienteLista* head);
-int LerFicheiroClientes(ClienteLista** head, char* ficheiro);
+int LerFicheiroClientes(char* ficheiro);
 int SalvarFicheiroClientes(ClienteLista* head, char* ficheiro);
 int SalvarFicheiroClientesBin(ClienteLista* head, char* ficheiro);
 ClienteLista* procuraClientes(ClienteLista* head, char* nif);

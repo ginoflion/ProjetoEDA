@@ -171,7 +171,7 @@ int SalvarFicheiroGestoresBin(GestoresLista* head, char* ficheiro) {
 
 	do
 	{
-		fwrite(&(gestorAtual->gestor), sizeof(GestoresLista), 1, fp);
+		fwrite(&(gestorAtual->gestor), sizeof(Gestores), 1, fp);
 
 		gestorAtual = gestorAtual->proximo;
 	} while (gestorAtual != NULL);
@@ -222,9 +222,10 @@ GestoresLista* lerFicheiroGestoresBinario(char* nomeFicheiro) {
 	GestoresLista* h = NULL;
 	Gestores aux;
 
-	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+	fp = fopen(nomeFicheiro, "rb");
+	if (!fp) return NULL;
 
-	while (fread(&aux, sizeof(Gestores), 1, fp)) {
+	while (fread(&aux, sizeof(Gestores), 1, fp)>0) {
 		h = addGestor(h, aux);
 	}
 

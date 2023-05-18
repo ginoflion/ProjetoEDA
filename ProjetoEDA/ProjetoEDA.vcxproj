@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Aluguer.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Gestao.h" />
     <ClInclude Include="Grafos.h" />
