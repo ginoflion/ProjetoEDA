@@ -152,24 +152,101 @@ Adj* DestruirAdj(Adj* adj){
 	return adj;
 }
 
+int SalvarFicheiroGrafosBin(Vertice* grafo, char* nomeFicheiro) {
+	if (grafo == NULL) return 3;
+	Vertice* verticeAtual = grafo;
+	VerticeFicheiro verticeFicheiro;
+	Adj* adjAtual;
+	AdjFicheiro adjAtualFicheiro;
 
-int SalvarFicheiroGrafosBin(Vertice* head, char* nomeFicheiro){
-	if (head == NULL)return 3;
-	Vertice* aux = head;
 	FILE* fp;
-	fp = fopen(nomeFicheiro, "wb");
+	fopen_s(&fp, nomeFicheiro, "wb");
 	if (fp == NULL)return 2;
-	VerticeFicheiro auxFicheiro;
-	while (aux != NULL) {
-		auxFicheiro.cod = aux->cod;
-		strcpy(auxFicheiro.cidade, aux->cidade);
-		fwrite(&auxFicheiro, sizeof(VerticeFicheiro), 1, fp);
-		if (aux->adjacente) {
-			SalvarFicheiroAdjBin(aux->adjacente,);
-		}
-		aux = aux->proximo;
-	}
 
+	int numeroVertices = ContarVertice(grafo);
+	fwrite(&numeroVertices, sizeof(numeroVertices), 1, fp);
+
+	while (verticeAtual != NULL) {
+		strcpy(verticeFicheiro.cidade, verticeAtual->cidade);
+		verticeFicheiro.cod = verticeAtual->cod;
+		fwrite(&(verticeFicheiro), sizeof(VerticeFicheiro), 1, fp);
+		verticeAtual = verticeAtual->proximo;
+	}
+	verticeAtual = grafo;
+	while (verticeAtual != NULL) {
+		Adj* adjAtual = verticeAtual->adjacente;
+		while (adjAtual != NULL) {
+			adjAtualFicheiro.codOrigem = verticeAtual->adjacente->codOrigem;
+			adjAtualFicheiro.codDestino = verticeAtual->adjacente->codDestino;
+			adjAtualFicheiro.distancia = verticeAtual->adjacente->distancia;
+			fwrite(&adjAtualFicheiro,sizeof(adjAtualFicheiro),1,fp);
+			adjAtual = adjAtual->proximo;
+
+		}
+		verticeAtual = verticeAtual->proximo;
+	}
 	fclose(fp);
 	return 1;
 }
+
+Vertice* lerFicheiroGrafosBin(char* nomeFicheiro){
+	FILE* fp = fopen(nomeFicheiro, "rb");
+
+	
+	if (fp == NULL) return NULL;
+
+	VerticeFicheiro verticeAtualFicheiro;
+	AdjFicheiro adjAtualFicheiro;
+
+	Vertice* grafo = NULL;
+	Vertice* verticeAtual = NULL;
+
+
+	int numVertices = 0;
+
+	fread(&numVertices, sizeof(int), 1, fp);
+
+	if (numVertices <= 0) return;
+
+	for (int i = 0; i < numVertices; i++) {
+
+		if (fread(&verticeAtualFicheiro, sizeof(VerticeFicheiro), 1, fp)) {
+			Vertice* novoVertice = CriaVertice(verticeAtualFicheiro.cidade, verticeAtualFicheiro.cod);
+			
+			grafo = AddVertice(grafo, novoVertice);
+		}
+	}
+
+	while (fread(&adjAtualFicheiro, sizeof(AdjFicheiro), 1, fp) == 1) {
+
+		Adj* novaAdjacencia = CriaAdj(adjAtualFicheiro.codOrigem, adjAtualFicheiro.codDestino, adjAtualFicheiro.distancia);
+
+		verticeAtual = ProcuraVertice(grafo, novaAdjacencia->codOrigem);
+		InserirAdjVertice(verticeAtual, novaAdjacencia);
+	}
+
+	fclose(fp);
+	return grafo;
+}
+
+
+
+int ContarVertice(Vertice* grafo) {
+
+	int p = 0;
+	Vertice* atual = grafo;
+
+	while (atual != NULL) {
+		p++;
+		atual = atual->proximo;
+	}
+
+	return p;
+}
+
+
+
+
+
+
+

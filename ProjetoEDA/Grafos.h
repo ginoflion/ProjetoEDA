@@ -49,10 +49,11 @@ Vertice* CriaVertice(char* cidade, int cod);
 Vertice* AddVertice(Vertice* head, Vertice* novo);
 void MostraGrafo(Vertice* head);
 Vertice* DestruirGrafo(Vertice* head);
-int SalvarFicheiroGrafosBin(Vertice* head, char* nomeFicheiro);
+int SalvarFicheiroGrafosBin(Vertice* grafo, char* nomeFicheiro);
+Vertice* lerFicheiroGrafosBin(char* nomeFicheiro);
+int ContarVertice(Vertice* grafo);
 
 Adj* CriaAdj(int codOrigem, int codDestino, float distancia);
 Adj* InserirAdjVertice(Vertice* grafo, Adj* adj);
 void MostraAdjacencias(Adj* adj);
 Adj* DestruirAdj(Adj* adj);
-int SalvarFicheiroAdjBin(Adj* adj, char* nomeFicheiro);

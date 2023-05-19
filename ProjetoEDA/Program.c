@@ -31,9 +31,10 @@ int main() {
     InserirAdjVertice(grafo, adj);
     int t = SalvarFicheiroGrafosBin(grafo, "grafos.bin");
     printf("%d", t);
-    /*MostraGrafo(grafo);*/
+    //MostraGrafo(grafo);
 
-
+    Vertice* novalista = lerFicheiroGrafosBin("grafos.bin");
+    MostraGrafo(novalista);
 
 
     return 0;

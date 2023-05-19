@@ -1,2 +1,2 @@
-﻿Grafo.obj : error LNK2019: unresolved external symbol SalvarFicheiroAdjBin referenced in function SalvarFicheiroGrafosBin
-C:\Users\gonca\Desktop\IPCA\ProjetoEda\ProjetoEDA\x64\Debug\ProjetoEDA.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Program.c
+  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe
