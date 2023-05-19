@@ -29,10 +29,12 @@ int main() {
        
     Adj* adj = CriaAdj(1, 2, 10.0);
     InserirAdjVertice(grafo, adj);
-    MostraGrafo(grafo);
+    int t = SalvarFicheiroGrafosBin(grafo, "grafos.bin");
+    printf("%d", t);
+    /*MostraGrafo(grafo);*/
 
 
-   
+
 
     return 0;
 }

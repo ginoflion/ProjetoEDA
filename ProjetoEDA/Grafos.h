@@ -23,6 +23,10 @@ typedef struct Vertice {
 	struct Adj* adjacente;
 }Vertice;
 
+typedef struct VerticeFicheiro {
+	int cod;
+	char cidade[NomeCidade];
+}VerticeFicheiro;
 
 typedef struct Adj {
 	int codOrigem;
@@ -31,6 +35,12 @@ typedef struct Adj {
 	struct Adj* proximo;
 }Adj;
 
+typedef struct AdjFicheiro {
+	int codOrigem;
+	int codDestino;
+	float distancia;
+	
+}AdjFicheiro;
 
 
 
@@ -38,8 +48,11 @@ typedef struct Adj {
 Vertice* CriaVertice(char* cidade, int cod);
 Vertice* AddVertice(Vertice* head, Vertice* novo);
 void MostraGrafo(Vertice* head);
-void DestruirGrafo(Vertice* head);
+Vertice* DestruirGrafo(Vertice* head);
+int SalvarFicheiroGrafosBin(Vertice* head, char* nomeFicheiro);
 
 Adj* CriaAdj(int codOrigem, int codDestino, float distancia);
 Adj* InserirAdjVertice(Vertice* grafo, Adj* adj);
 void MostraAdjacencias(Adj* adj);
+Adj* DestruirAdj(Adj* adj);
+int SalvarFicheiroAdjBin(Adj* adj, char* nomeFicheiro);

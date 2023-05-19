@@ -120,46 +120,56 @@ void MostraAdjacencias(Adj* adj) {
 }
 #pragma endregion 
 
-int SalvarFicheiroGrafoBin(Vertice* grafo, char* ficheiro) {
-	if (grafo == NULL || ficheiro == NULL) return 2;
 
-	FILE* fp;
-	fopen_s(&fp, ficheiro, "wb");
-	if (fp == NULL) return 2;
 
-	// Contar o número de vértices manualmente
-	int numVertices = 0;
-	Vertice* grafoAtual = grafo;
-	while (grafoAtual != NULL) {
-		numVertices++;
-		grafoAtual = grafoAtual->proximo;
+Vertice* DestruirGrafo(Vertice* head) {
+	if (head == NULL)return NULL;
+	
+	Vertice* atual = NULL;
+	while (head) {
+		if (head->proximo) {
+			atual = head->proximo;
+		}
+		head->adjacente = DestruirAdj(head->adjacente);
+		free(head);
+		head = atual;
+		atual = NULL;
 	}
+	return head;
+}
 
-	// Escrever o número de vértices no arquivo
-	fwrite(&numVertices, sizeof(int), 1, fp);
+Adj* DestruirAdj(Adj* adj){
+	if (adj == NULL)return NULL;
+	Adj* atual = NULL;
+	while (adj) {
+		if (adj->proximo != NULL) {
+			atual = adj->proximo;
+        }
+		free(adj);
+		adj = atual;
+		atual = NULL;
+	}
+	return adj;
+}
 
-	// Reiniciar o ponteiro para o início do grafo
-	grafoAtual = grafo;
 
-	// Escrever cada vértice no arquivo
-	while (grafoAtual != NULL) {
-		fwrite(grafoAtual, sizeof(Vertice), 1, fp);
-		grafoAtual = grafoAtual->proximo;
+int SalvarFicheiroGrafosBin(Vertice* head, char* nomeFicheiro){
+	if (head == NULL)return 3;
+	Vertice* aux = head;
+	FILE* fp;
+	fp = fopen(nomeFicheiro, "wb");
+	if (fp == NULL)return 2;
+	VerticeFicheiro auxFicheiro;
+	while (aux != NULL) {
+		auxFicheiro.cod = aux->cod;
+		strcpy(auxFicheiro.cidade, aux->cidade);
+		fwrite(&auxFicheiro, sizeof(VerticeFicheiro), 1, fp);
+		if (aux->adjacente) {
+			SalvarFicheiroAdjBin(aux->adjacente,);
+		}
+		aux = aux->proximo;
 	}
 
 	fclose(fp);
-	return 0;
+	return 1;
 }
-
-//void DestruirGrafo(Vertice* head) {
-//	if (head == NULL)return NULL;
-//	
-//	Vertice* atual = head;
-//	while (atual != NULL) {
-//		Vertice* proximo = atual->proximo;
-//		free(atual->adjacente);
-//		free(atual->cidade);
-//		free(atual->cod);
-//		free(atual->proximo);
-//	}
-//}
