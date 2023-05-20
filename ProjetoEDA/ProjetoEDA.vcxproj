@@ -134,6 +134,7 @@
     <ClInclude Include="Mobilidade.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Aluguer.c" />
     <ClCompile Include="Clientes.c" />
     <ClCompile Include="Gestores.c" />
     <ClCompile Include="Grafo.c" />

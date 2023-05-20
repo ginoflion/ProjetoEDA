@@ -47,5 +47,8 @@
     <ClCompile Include="Grafo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Aluguer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

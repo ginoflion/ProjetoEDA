@@ -1,2 +1,10 @@
-﻿  Program.c
-  ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe
+﻿  Aluguer.c
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(15,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(11,32): warning C4028: formal parameter 1 different from declaration
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(11,54): warning C4028: formal parameter 2 different from declaration
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(26,52): error C2440: 'function': cannot convert from 'float' to 'MobilidadeE *'
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(26,38): warning C4024: 'ModificarSaldo': different types for formal and actual parameter 2
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.c(42,45): warning C4028: formal parameter 2 different from declaration
