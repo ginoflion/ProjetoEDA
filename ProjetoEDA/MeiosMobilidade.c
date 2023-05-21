@@ -238,7 +238,7 @@ MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head) {
 		MobilidadeLista* atual = head;
 		while (atual->proximo!=NULL) {
 			if (atual->automovel.autonomia < atual->proximo->automovel.autonomia) {
-				SwapMeioMobilidade(atual, atual->proximo);
+				TrocarMeioMobilidade(atual, atual->proximo);
 			}
 			atual = atual->proximo;
 		}
@@ -248,7 +248,7 @@ MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head) {
 }
 
 
-MobilidadeLista* SwapMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2) {
+MobilidadeLista* TrocarMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2) {
 	MobilidadeE aux = transporte1->automovel;
 	transporte1->automovel = transporte2->automovel;
 	transporte2->automovel = aux;

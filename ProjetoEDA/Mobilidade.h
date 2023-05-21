@@ -46,6 +46,6 @@ int SalvarFicheiroMeioMobilidadeBin(MobilidadeLista* head, char* ficheiro);
 MobilidadeLista* procuraMeioMobilidade(MobilidadeLista* head, char* matricula);
 MobilidadeLista* alterarMeioMobilidade(MobilidadeLista* head, int autonomia, TipoC tipo, float precoAluguer,float bateria , char* matricula, char* localizacao);
 MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head);
-MobilidadeLista* SwapMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2);
+MobilidadeLista* TrocarMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2);
 MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head,char* localizacao );
 MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro);

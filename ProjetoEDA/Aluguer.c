@@ -9,10 +9,11 @@
 
 #include "Aluguer.h";
 
-Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* automovel, AluguerLista* alugueres) {
-    if (cliente == NULL || automovel == NULL) return NULL;
 
-    if (!VerificarSaldoCliente(automovel->precoAluguer, cliente)) {
+Aluguer* CriarAluguer(ClienteLista* listaC, MobilidadeLista* listaA, AluguerLista* alugueres) {
+    if (listaC == NULL || listaA == NULL) return NULL;
+
+    if (!VerificarSaldoCliente(listaA->automovel.precoAluguer, &(listaC->cliente))) {
         return NULL;
     }
 
@@ -21,13 +22,13 @@ Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* automovel, AluguerLista* al
         return NULL;
     }
 
-    aluguer->cliente = cliente;
-    aluguer->automovel = automovel;
+    aluguer->cliente = &(listaC->cliente);
+    aluguer->automovel = &(listaA->automovel);
 
-    ModificarSaldo(cliente, automovel->precoAluguer);
+    ModificarSaldo(&(listaC->cliente), listaA->automovel.precoAluguer);
 
     alugueres = AdicionarAluguerLista(alugueres, aluguer);
-    
+
     return aluguer;
 }
 
@@ -78,4 +79,21 @@ AluguerLista* AdicionarAluguerLista(AluguerLista* listaAlugueres, Aluguer* alugu
     }
 
     return listaAlugueres;
+}
+
+
+void MostrarAluguer(Aluguer* aluguer) {
+    if (aluguer == NULL) {
+        printf("Aluguer inválido.\n");
+        return;
+    }
+
+    printf("Cliente: %s\n", aluguer->cliente->nome);
+    printf("NIF: %s\n", aluguer->cliente->nif);
+    printf("Saldo Disponivel apos aluguer: %f\n", aluguer->cliente->saldo);
+    printf("Tipo de Carro: %d\n", aluguer->automovel->tipo);
+    printf("Matricula: %s\n", aluguer->automovel->matricula);
+    printf("Autonomia: %f\n", aluguer->automovel->autonomia);
+    printf("Bateria: %f\n", aluguer->automovel->bateria);
+
 }

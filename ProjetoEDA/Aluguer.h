@@ -30,8 +30,8 @@ struct AluguerLista {
     AluguerLista* proximo;
 };
 
-Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* automovel, AluguerLista* alugueres);
+Aluguer* CriarAluguer(ClienteLista* listaC, MobilidadeLista* listaA, AluguerLista* alugueres);
 bool VerificarSaldoCliente(float valorAluguel, Cliente* cliente);
 void ModificarSaldo(Cliente* cliente, float valorAluguel); 
 AluguerLista* AdicionarAluguerLista(AluguerLista* listaAlugueres, Aluguer* aluguer);
-
+void MostrarAluguer(Aluguer* aluguer);
