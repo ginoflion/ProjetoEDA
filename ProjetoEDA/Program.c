@@ -27,15 +27,17 @@ int main() {
     clientes = addCliente(clientes, c2);
     MobilidadeE m1 = { 1500,M1,500, 1200, "12-AC-45","Braga" };
     MobilidadeE m2 = { 2000,M3,700, 1900, "69-TV-69","Porto" };
-    meiosMobilidade = addMeioMobilidade(meiosMobilidade, m1);
-    meiosMobilidade = addMeioMobilidade(meiosMobilidade, m2);
 
-    ClienteLista* clienteEncontrado = procuraClientes(clientes, "123456789");
-    MobilidadeLista* meioEncontrado = procuraMeioMobilidade(meiosMobilidade,"12-AC-45" );
+    Aluguer* a1 = CriarAluguer(&c1 , &m1, 1);
+    Aluguer* a2 = CriarAluguer(&c2, &m2, 2);
+    alugueres = AdicionarAluguerLista(alugueres, a1);
+    alugueres = AdicionarAluguerLista(alugueres, a2);
+    MostrarListaAlugueres(alugueres);
+    AluguerLista* aluguerARemover = ProcurarAluguer(2, alugueres);
+    alugueres = removerAluguerLista(aluguerARemover,alugueres);
+    MostrarListaAlugueres(alugueres);
+    
 
-    Aluguer* aluguer = CriarAluguer(clienteEncontrado, meioEncontrado, alugueres);
-    MostrarAluguer(aluguer);
-   
 
     // Procurar um cliente com base no número de NIF
     /*

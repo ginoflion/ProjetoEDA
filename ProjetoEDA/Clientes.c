@@ -246,3 +246,11 @@ ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro) {
 }
 
 
+Cliente* ModificarSaldo(Cliente* cliente, float valorAluguel) {
+	if (cliente == NULL || valorAluguel <= 0) return;
+
+	if (VerificarSaldoCliente(valorAluguel, cliente)) {
+		cliente->saldo -= valorAluguel;
+	}
+	return cliente;
+}

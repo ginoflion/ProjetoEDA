@@ -17,6 +17,7 @@
 #include "Mobilidade.h";
 
 typedef struct Aluguer {
+    int id;
 	Cliente* cliente;
 	MobilidadeE* automovel;
     Vertice* grafo;
@@ -30,8 +31,12 @@ struct AluguerLista {
     AluguerLista* proximo;
 };
 
-Aluguer* CriarAluguer(ClienteLista* listaC, MobilidadeLista* listaA, AluguerLista* alugueres);
+Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* meio,int id);
 bool VerificarSaldoCliente(float valorAluguel, Cliente* cliente);
-void ModificarSaldo(Cliente* cliente, float valorAluguel); 
 AluguerLista* AdicionarAluguerLista(AluguerLista* listaAlugueres, Aluguer* aluguer);
 void MostrarAluguer(Aluguer* aluguer);
+int SalvarFicheiroAlugueresBin(AluguerLista* head, char* ficheiro);
+AluguerLista* lerFicheiroAlugueresBinario(char* nomeFicheiro);
+void MostrarListaAlugueres(AluguerLista* listaAlugueres);
+AluguerLista* removerAluguerLista(AluguerLista* aluguer, AluguerLista* listaAlugueres);
+Aluguer* ProcurarAluguer(int id, AluguerLista* listaAlugueres);
