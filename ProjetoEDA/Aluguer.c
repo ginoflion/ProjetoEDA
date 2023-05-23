@@ -17,6 +17,7 @@
  * \param id
  * \return 
  */
+
 Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* meio, int id) {
     if (cliente == NULL || meio == NULL) return NULL;
 
@@ -183,6 +184,7 @@ AluguerLista* removerAluguerLista(AluguerLista* aluguer, AluguerLista* listaAlug
     return listaAlugueres;
 }
 
+
 Aluguer* ProcurarAluguer(int id, AluguerLista* listaAlugueres) {
     if (listaAlugueres == NULL)return NULL;
     AluguerLista* aux = listaAlugueres;
@@ -194,3 +196,4 @@ Aluguer* ProcurarAluguer(int id, AluguerLista* listaAlugueres) {
     }
     return NULL;
 }
+

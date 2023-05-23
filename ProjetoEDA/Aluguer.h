@@ -27,8 +27,8 @@ typedef struct Aluguer {
 typedef struct AluguerLista AluguerLista;
 struct AluguerLista {
     Aluguer aluguer;
-    AluguerLista* anterior;
     AluguerLista* proximo;
+    AluguerLista* anterior;
 };
 
 Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* meio,int id);

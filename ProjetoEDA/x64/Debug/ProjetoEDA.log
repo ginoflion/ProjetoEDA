@@ -1,6 +1,7 @@
 ﻿  Program.c
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Grafos.h(17,1): warning C4005: 'N': macro redefinition
+C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Gestao.h(17,1): message : see previous definition of 'N'
 C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(15,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Aluguer.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gonca\source\repos\ProjetoEDA\ProjetoEDA\Program.c(36,19): warning C4133: 'initializing': incompatible types - from 'Aluguer *' to 'AluguerLista *'
   ProjetoEDA.vcxproj -> C:\Users\gonca\source\repos\ProjetoEDA\x64\Debug\ProjetoEDA.exe

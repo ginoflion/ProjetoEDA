@@ -14,6 +14,7 @@
 
 
 #define NomeCidade 30
+#define N 30;
 
 
 typedef struct Vertice {
@@ -52,8 +53,9 @@ Vertice* DestruirGrafo(Vertice* head);
 int SalvarFicheiroGrafosBin(Vertice* grafo, char* nomeFicheiro);
 Vertice* lerFicheiroGrafosBin(char* nomeFicheiro);
 int ContarVertice(Vertice* grafo);
-
+Vertice* ProcuraVertice(Vertice* head, int cod);
 Adj* CriaAdj(int codOrigem, int codDestino, float distancia);
 Adj* InserirAdjVertice(Vertice* grafo, Adj* adj);
 void MostraAdjacencias(Adj* adj);
 Adj* DestruirAdj(Adj* adj);
+//Ler Ficheiro Texto

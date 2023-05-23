@@ -11,7 +11,6 @@
 
 #pragma region Vertices
 
-
 Vertice* CriaVertice(char* cidade, int cod) {
 	Vertice* novoVertice = (Vertice*)malloc(sizeof(Vertice));
 	if (novoVertice == NULL) {
@@ -27,9 +26,6 @@ Vertice* CriaVertice(char* cidade, int cod) {
 	novoVertice->adjacente = NULL;
 	return novoVertice;
 }
-
-
-
 
 Vertice* AddVertice(Vertice* head, Vertice* novo) {
 	if (head== NULL) {
@@ -246,7 +242,84 @@ int ContarVertice(Vertice* grafo) {
 
 
 
+Vertice* CaminhoMaisCurto(Vertice* grafo, int codOrigem) {
 
+}
 
+//PathList* InitializePathList(Vertex* graph) {
+//
+//	if (graph == NULL) return NULL;
+//
+//	PathList* path = NULL;
+//	Vertex* current = graph;
+//
+//	while (current != NULL) {
+//
+//		AddPathList(&path, CreatePathList(current->values.id));
+//
+//		current = current->next;
+//	}
+//
+//	return path;
+//}
+//PathList* FindShortestPath(Vertex* graph, int source) {
+//
+//	// All the shortest paths will be contained in this list, we initialize so all the vertexes start with an "infinite" distance
+//	PathList* pathlist = InitializePathList(graph);
+//
+//	// Set source Vertex distance to zero since it's we're already there
+//	FindPathList(pathlist, source)->distance = 0;
+//
+//	Vertex* currentV = SearchVertexByCode(graph, source);
+//	Adj* currentA = NULL;
+//
+//	Path* currentpath = CreatePath(source);
+//	int distance = 0;
+//
+//	while (!AllVerticesVisited(graph)) {
+//
+//		currentA = currentV->adjacency;
+//		Adj* leastDistant = NULL; // Adjacency poiting to the Least distant vertex
+//		int leastDistantDistance = 0; // Adjacency poiting to the Least distant vertex
+//		while (currentA != NULL) {
+//			if (!currentA->vertex->isVisited) {
+//				// Checks if the current path is shorter than the current on the list and updates it
+//				if (distance + currentA->weight < FindPathList(pathlist, currentA->vertex->values.id)->distance) {
+//					PathList* path = FindPathList(pathlist, currentA->vertex->values.id);
+//					path->distance = distance + currentA->weight;
+//					path->path = CopyPath(currentpath);
+//					PushPath(&(path->path), CreatePath(currentA->vertex->values.id));
+//				}
+//
+//				// Find the closest Vertex to the current one
+//				if (leastDistant == NULL || currentA->weight < leastDistantDistance) {
+//					leastDistant = currentA;
+//					leastDistantDistance = currentA->weight;
+//				}
+//			}
+//
+//			currentA = currentA->next;
+//		}
+//		// Updates current vertex to the closest one to itself
+//		if (leastDistant != NULL) {
+//			currentV->isVisited = true;
+//			distance += leastDistant->weight;
+//			currentV = leastDistant->vertex;
+//			PushPath(&currentpath, CreatePath(currentV->values.id));
+//		}
+//		// If there's not any left, return to the previous one to check all the other options
+//		else if (currentV->values.id != source) {
+//			currentV->isVisited = true;
+//			PopPath(&currentpath);
+//			currentV = SearchVertexByCode(graph, TopPath(currentpath)->vertex);
+//		}
+//		// If all the possible paths were checks and still not visited all vertices, return the possible paths
+//		else {
+//			return pathlist;
+//		}
+//	}
+//
+//	return pathlist;
+//}
 
 
