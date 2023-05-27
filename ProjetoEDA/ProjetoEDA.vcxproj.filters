@@ -30,9 +30,6 @@
     <ClInclude Include="Aluguer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Caminhos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Clientes.c">
@@ -51,9 +48,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Aluguer.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Caminhos.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   Aluguer.h
- * \brief  
+ * \brief  Structs e Funções para Aluguer
  * 
  * \author Gonçalo Silva - a25970
  * \date   May 2023
@@ -12,9 +12,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include "Grafos.h";
-#include "Cliente.h";
-#include "Mobilidade.h";
+#include "Grafos.h"
+#include "Cliente.h"
+#include "Mobilidade.h"
 
 typedef struct Aluguer {
     int id;
@@ -32,7 +32,6 @@ struct AluguerLista {
 };
 
 Aluguer* CriarAluguer(Cliente* cliente, MobilidadeE* meio,int id);
-bool VerificarSaldoCliente(float valorAluguel, Cliente* cliente);
 AluguerLista* AdicionarAluguerLista(AluguerLista* listaAlugueres, Aluguer* aluguer);
 void MostrarAluguer(Aluguer* aluguer);
 int SalvarFicheiroAlugueresBin(AluguerLista* head, char* ficheiro);

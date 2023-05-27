@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   Graphs.h
- * \brief  Header dos Grafos
+ * \brief  Structs e Funções para Grafos
  * 
  * \author Gonçalo Silva - a25970
  * \date   May 2023
@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #define NomeCidade 30
 #define N 30;
 
@@ -21,6 +20,7 @@ typedef struct Vertice {
 	int cod;
 	char cidade[NomeCidade];
 	struct Vertice* proximo;
+	bool visitado;
 	struct Adj* adjacente;
 }Vertice;
 
@@ -34,6 +34,7 @@ typedef struct Adj {
 	int codDestino;
 	float distancia;		
 	struct Adj* proximo;
+	struct Vertice* vertice;
 }Adj;
 
 typedef struct AdjFicheiro {
@@ -44,18 +45,26 @@ typedef struct AdjFicheiro {
 }AdjFicheiro;
 
 
-
-
+#pragma region Vertice
 Vertice* CriaVertice(char* cidade, int cod);
 Vertice* AddVertice(Vertice* head, Vertice* novo);
+Vertice* ProcuraVertice(Vertice* head, int cod);
+int ContarVertice(Vertice* grafo);
+bool TodosVerticesVisitados(Vertice* grafo);
+#pragma endregion
+
+#pragma region Grafo
 void MostraGrafo(Vertice* head);
 Vertice* DestruirGrafo(Vertice* head);
 int SalvarFicheiroGrafosBin(Vertice* grafo, char* nomeFicheiro);
-Vertice* lerFicheiroGrafosBin(char* nomeFicheiro);
-int ContarVertice(Vertice* grafo);
-Vertice* ProcuraVertice(Vertice* head, int cod);
-Adj* CriaAdj(int codOrigem, int codDestino, float distancia);
-Adj* InserirAdjVertice(Vertice* grafo, Adj* adj);
+Vertice* LerFicheiroGrafoBin(Vertice* grafo, char* nomeFicheiro);
+int ExisteCaminho(Vertice* grafo, int codOrigem, int codDestino);
+
+#pragma endregion
+
+#pragma region Adjacente
+Adj* CriaAdj(Vertice* codOrigem, Vertice* codDestino, float distancia);
 void MostraAdjacencias(Adj* adj);
 Adj* DestruirAdj(Adj* adj);
-//Ler Ficheiro Texto
+Adj* InserirAdjVertice(Vertice* head, Adj* adj);
+#pragma endregion

@@ -230,7 +230,12 @@ MobilidadeLista* alterarMeioMobilidade(MobilidadeLista* head, int autonomia, Tip
 	}
 	return head;
 }
-
+/**
+ * \brief Lista os meios de mobilidade por ordem decrescente de autonomia dos automóveis.
+ * 
+ * \param head Ponteiro para o início da lista de meios de mobilidade.
+ * \return Ponteiro para o inicio da lista ordenada
+ */
 MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head) {
 	if (head == NULL)return NULL;
 	MobilidadeLista* aux=head;
@@ -247,14 +252,26 @@ MobilidadeLista* listarMeiosMobilidadePorAutonomia(MobilidadeLista* head) {
 	return head;
 }
 
-
+/**
+ * \brief Troca a posiçao de dois meios na lista
+ * 
+ * \param transporte1 Ponteiro para o transporte a trocar
+ * \param transporte2 Ponteiro para o transporte a trocar
+ * \return 
+ */
 MobilidadeLista* TrocarMeioMobilidade(MobilidadeLista* transporte1, MobilidadeLista* transporte2) {
 	MobilidadeE aux = transporte1->automovel;
 	transporte1->automovel = transporte2->automovel;
 	transporte2->automovel = aux;
 
 }
-
+/**
+ * \brief Lista Meios de mobilidade que se encontram numa determinada localização
+ * 
+ * \param head Ponteiro para o inicio da lista de meiosMobilidade
+ * \param localizacao Localização a procurar
+ * \return Ponteiro para a nova lista que contem apenas os automoveis da localizaçao
+ */
 MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char* localizacao) {
 	
 	if (head == NULL)return NULL;
@@ -262,6 +279,7 @@ MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char
 	MobilidadeLista* novaLista = NULL;
 	MobilidadeLista* aux = head;
 	while (aux != NULL) {
+		//Verifica se a localizaçao do automovel é igual a localizaçao desejada
 		if (strcmp(aux->automovel.localizacao, localizacao) == 0) {
 			MobilidadeLista* novoAutomovel= (MobilidadeLista*)malloc(sizeof(MobilidadeLista));
 			novoAutomovel->automovel = aux->automovel;
@@ -282,7 +300,12 @@ MobilidadeLista* listarMeiosMobilidadePorLocalizacao(MobilidadeLista* head, char
 	return novaLista;
 }
 
-
+/**
+ * \brief Leitura de um ficheiro binário
+ * 
+ * \param nomeFicheiro String com o nome do ficheiro
+ * \return lista com os meios de mobilidade presentes no ficheiro
+ */
 MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro) {
 	FILE* fp;
 	MobilidadeLista* h = NULL;
@@ -298,3 +321,4 @@ MobilidadeLista* lerFicheiroMobilidadeBinario(char* nomeFicheiro) {
 	fclose(fp);
 	return h;
 }
+

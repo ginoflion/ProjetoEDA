@@ -187,16 +187,20 @@ int SalvarFicheiroGestoresBin(GestoresLista* head, char* ficheiro) {
  * \return O ponteiro para o gestor encontrado ou NULL se não encontrado.
  */
 GestoresLista* procuraGestores(GestoresLista* head, int id) {
-	if (head == NULL || id<0)return NULL;
+	if (head == NULL || id < 0)
+		return NULL;
+
 	GestoresLista* aux = head;
 	while (aux != NULL) {
-		if (aux->gestor.id==id) {
+		if (aux->gestor.id == id) {
 			return aux;
 		}
 		aux = aux->proximo;
 	}
+
 	return NULL;
 }
+
 /**
  * \brief Altera os dados de um gestor na lista de gestores.
  * 
@@ -217,6 +221,13 @@ GestoresLista* alterarGestores(GestoresLista* head, int id, char* nome, char* em
 	}
 	return head;
 }
+
+/**
+ * \brief Leitura do fichewiro binário com informações dos gestores.
+ * 
+ * \param nomeFicheiro nome do ficheiro a ler
+ * \return nova lista de gestores lidos
+ */
 GestoresLista* lerFicheiroGestoresBinario(char* nomeFicheiro) {
 	FILE* fp;
 	GestoresLista* h = NULL;

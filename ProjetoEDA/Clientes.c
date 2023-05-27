@@ -227,7 +227,12 @@ ClienteLista* alterarClientes(ClienteLista* head, float saldo, char* nome, char*
 	return head;
 }
 
-
+/**
+ * \brief Leitura de um ficheiro binário
+ * 
+ * \param nomeFicheiro nome do ficheiro
+ * \return nova lista de clientes com os clientes inseridos no ficheiro
+ */
 ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro) {
 	FILE* fp;
 	ClienteLista* h = NULL;
@@ -245,12 +250,37 @@ ClienteLista* lerFicheiroClientesBinario(char* nomeFicheiro) {
 	return h;
 }
 
+/**
+ * \brief Altera o saldo do cliente de acordo com o valor do aluguer
+ * 
+ * \param cliente Ponteiro para o Cliente cujo saldo vai ser modificado
+ * \param valorAluguer inteiro com o valor do aluguer
+ * \return 
+ */
+Cliente* ModificarSaldo(Cliente* cliente, float valorAluguer) {
+	if (cliente == NULL || valorAluguer <= 0) return;
 
-Cliente* ModificarSaldo(Cliente* cliente, float valorAluguel) {
-	if (cliente == NULL || valorAluguel <= 0) return;
-
-	if (VerificarSaldoCliente(valorAluguel, cliente)) {
-		cliente->saldo -= valorAluguel;
+	if (VerificarSaldoCliente(valorAluguer, cliente)) {
+		cliente->saldo -= valorAluguer;
 	}
 	return cliente;
+}
+
+/**
+ * \brief Verifica se o saldo do cliente é suficiente para o valor do aluguer
+ *
+ * \param valorAluguel o valor do aluguel
+ * \param cliente ponteiro para o cliente que vai realizar o aluguer
+ * \return true caso o cliente tenha saldo suficiente
+ * \return false caso nao seja suficiente o saldo
+ */
+bool VerificarSaldoCliente(float valorAluguer, Cliente* cliente) {
+	if (valorAluguer < 0 || cliente == NULL) return false;
+
+	if (cliente->saldo >= valorAluguer) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

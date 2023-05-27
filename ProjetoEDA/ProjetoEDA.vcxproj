@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aluguer.h" />
-    <ClInclude Include="Caminhos.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Gestao.h" />
     <ClInclude Include="Grafos.h" />
@@ -136,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aluguer.c" />
-    <ClCompile Include="Caminhos.c" />
     <ClCompile Include="Clientes.c" />
     <ClCompile Include="Gestores.c" />
     <ClCompile Include="Grafo.c" />
